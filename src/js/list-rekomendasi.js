@@ -74,9 +74,9 @@ document.addEventListener('DOMContentLoaded', function () {
                         const tekanan = data.main.pressure;
                         const kecepatanAngin = data.wind.speed;
                         const kondisiCuaca = data.weather[0].description;
-                        const namaKota = data.name;
+                        // const namaKota = data.name;
                         const iconCode = data.weather[0].icon;
-                        const iconUrl = `https://openweathermap.org/img/wn/${iconCode}@2x.png`;
+                        // const iconUrl = `https://openweathermap.org/img/wn/${iconCode}@2x.png`;
 
                         console.log(`Suhu: ${suhu}°C`);
                         console.log(`Kelembapan: ${kelembapan}%`);
