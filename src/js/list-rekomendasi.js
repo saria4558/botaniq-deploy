@@ -83,7 +83,7 @@ document.addEventListener('DOMContentLoaded', function () {
                         console.log(`Tekanan udara: ${tekanan} hPa`);
                         console.log(`Kecepatan angin: ${kecepatanAngin} m/s`);
                         console.log(`Cuaca: ${kondisiCuaca}`);
-                        console.log(`Lokasi: ${namaKota}`);
+                        // console.log(`Lokasi: ${namaKota}`);
 
                         // Tampilkan info cuaca jika ingin
                         // document.getElementById("weather-info").innerHTML = ...
