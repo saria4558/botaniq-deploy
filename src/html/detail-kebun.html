@@ -29,7 +29,11 @@
                         <!-- <i class="fas fa-user"></i> -->
                          <img id="profileImage" class="profile-avatar-card" src="../img/profile.jpeg" alt="Foto Profil">
                     </div>
-                </div>
+                    <div class="profile-dropdown">
+                    <a href="profile-revisi.html"><i class="fas fa-user"></i> Profile</a>
+                    <div class="divider"></div>
+                    <a href='#' id="logoutbtn"><i class="fas fa-sign-out-alt"></i> Logout</a>
+            </div>
             <!-- Mobile menu icon will be added here by CSS based on screen size -->
             <div class="mobile-menu-icon">
                 <i class="fas fa-bars"></i> <!-- Hamburger icon -->
@@ -78,17 +82,16 @@
 
                 <!-- Schedule Section -->
                 <div class="detail-card schedule-section">
-                    <h3>Jadwal Perawatan</h3>
+                    <h3>Jadwal Perawatan (Real-time)</h3>
+                    <form id="form-aktivitas-perawatan" style="margin-bottom: 1em;">
+                        <input type="text" id="input-aktivitas" placeholder="Tambah aktivitas perawatan (misal: Siram Tanaman, Pemupukan, Pembersihan)" required>
+                        <button type="submit">Tambah</button>
+                    </form>
                     <div class="schedule-list">
-                        <p class="schedule-day-label">Hari ini</p>
-                        <h4 class="schedule-date">Senin, 3 Februari 2027</h4>
-                        <!-- Example schedule item -->
-                        <div class="schedule-item">
-                            <div class="time">08:00</div>
-                            <div class="vertical-line"></div>
-                            <div class="event-description">
-                                <p>Siram Tanaman</p>
-                            </div>
+                        <p class="schedule-day-label" id="realtime-day-label">Hari ini</p>
+                        <h4 class="schedule-date" id="realtime-date">Senin, 3 Februari 2027</h4>
+                        <div id="list-aktivitas-perawatan">
+                            <!-- Daftar aktivitas akan muncul di sini, setiap aktivitas akan ada tombol hapus -->
                         </div>
                     </div>
                 </div>
@@ -97,16 +100,32 @@
                 <div class="detail-card update-condition-section">
                     <h3>Perbarui Kondisi Tanaman</h3>
                     <div class="input-group">
-                        <label for="update-question-1">Pertanyaan</label>
-                        <input type="text" id="update-question-1" placeholder="Pertanyaan">
+                        <label for="pertumbuhan">Pertumbuhan</label>
+                        <select id="pertumbuhan">
+                            <option value="">Pilih...</option>
+                            <option value="Lambat">Lambat</option>
+                            <option value="Sedang">Sedang</option>
+                            <option value="Cepat">Cepat</option>
+                        </select>
                     </div>
                     <div class="input-group">
-                        <label for="update-question-2">Pertanyaan</label>
-                        <input type="text" id="update-question-2" placeholder="Pertanyaan">
+                        <label for="pengairan">Pengairan</label>
+                        <select id="pengairan">
+                            <option value="">Pilih...</option>
+                            <option value="Siram mingguan">Siram mingguan</option>
+                            <option value="Siram sampai tanah lembap">Siram sampai tanah lembap</option>
+                            <option value="Siram saat tanah kering">Siram saat tanah kering</option>
+                            <option value="Siram secara teratur">Siram secara teratur</option>
+                        </select>
                     </div>
-                     <div class="input-group">
-                        <label for="update-question-3">Pertanyaan</label>
-                        <input type="text" id="update-question-3" placeholder="Pertanyaan">
+                    <div class="input-group">
+                        <label for="sinar-matahari">Sinar Matahari</label>
+                        <select id="sinar-matahari">
+                            <option value="">Pilih...</option>
+                            <option value="Sinar matahari tidak langsung">Sinar matahari tidak langsung</option>
+                            <option value="Sinar matahari penuh">Sinar matahari penuh</option>
+                            <option value="Sinar matahari sebagian">Sinar matahari sebagian</option>
+                        </select>
                     </div>
                     <button class="update-button">Perbarui</button>
                 </div>
@@ -178,5 +197,24 @@
     <!-- <script src="assets/js/detail-kebun.js"></script> Link the specific JS file -->
     <!-- Link for Vanilla Calendar JS -->
     <script src="https://cdn.jsdelivr.net/npm/vanilla-calendar-pro@2.9.4/build/vanilla-calendar.min.js"></script>
+    
+    <script>
+            document.addEventListener('DOMContentLoaded', function() {
+            const profileCircle = document.querySelector('.profile-circle');
+            const profileDropdown = document.querySelector('.profile-dropdown');
+
+            profileCircle.addEventListener('click', function(e) {
+                e.stopPropagation();
+                profileDropdown.classList.toggle('active');
+            });
+
+            // Close dropdown when clicking outside
+            document.addEventListener('click', function(e) {
+                if (!profileCircle.contains(e.target) && !profileDropdown.contains(e.target)) {
+                    profileDropdown.classList.remove('active');
+                }
+            });
+        });
+    </script>
 </body>
 </html>
