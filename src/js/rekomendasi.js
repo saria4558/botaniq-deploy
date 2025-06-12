@@ -513,5 +513,8 @@ function debounce(fn, delay) {
     };
 }
 
-
+document.querySelector('.back-link').addEventListener('click', function (e) {
+    e.preventDefault();
+    history.back(); // atau history.go(-1);
+});
 });
