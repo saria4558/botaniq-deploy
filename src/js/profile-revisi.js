@@ -21,8 +21,7 @@ document.addEventListener("DOMContentLoaded", function () {
     document.getElementById("negara").textContent = profile.negara || "-";
     document.getElementById("kota").textContent = profile.kota || "-";
 
-    const profileImageUrl = profile.foto ? `${BASE_API_URL}${profile.foto}` : "assets/img/profile.jpeg";
-
+    const profileImageUrl = profile.foto ? `${BASE_API_URL}/uploads/${profile.foto}` : "assets/img/profile.jpeg";
     document.querySelectorAll(".profile-avatar-card, #preview-profile-pic").forEach(img => {
       img.src = profileImageUrl;
     });
